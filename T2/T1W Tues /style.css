@@ -1,0 +1,47 @@
+
+:root {
+    font-size: 16px;
+}
+
+/* flex always in parent */
+.parent{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* flex-flow: wrap row; */
+    height: 330px;
+    border: 2px solid red;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: space;
+
+    font-size: 10px;
+    background-color: yellow;
+    height: 400px;
+}
+
+
+/* row -> horizontal(x-axis) -> (row: justify-content) (height: align-item) */
+/* column -> vertical(y-axis) -> (height: align-item) (row: justify-content)*/
+
+.child {
+    background-color: yellowgreen;
+    border: 2px solid black;
+    list-style-type: none;
+    font-size: 2rem;
+    background-color: red;
+    width: 400px;
+    text-align: center;
+    margin: auto;
+}
+
+/* @media screen and (mediafeature and|or|not mediafeature) */
+/* anything below 900px will show this css */
+@media screen and (max-width: 900px) {
+    .child {
+        background-color: white;
+        color: purple
+    }
+}
+
+
