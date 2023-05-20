@@ -1,0 +1,43 @@
+.nav-bar {
+  display: flexbox;
+  overflow: hidden;
+  flex-direction: column;
+  background-image: url('../img/Greyish.png');
+ 
+
+
+  li {
+    text-align: center;
+    border-bottom: 0.2rem solid $nav-border;
+    width: 100%;
+    padding: 0.5rem;
+    
+
+    a {
+      text-decoration: none;
+      color: $font-primary-color;
+    }
+  }
+}
+
+nav {
+  margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 800px) {
+  .nav-bar {
+    flex-direction: row;
+    margin-top: 16px;
+
+    li {
+      border-top: 0.2rem solid $nav-border;
+    }
+  }
+}
+
+
+
+
+
+
+
