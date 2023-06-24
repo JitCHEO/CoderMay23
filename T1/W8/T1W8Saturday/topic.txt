@@ -1,0 +1,14 @@
+
+
+File handling
+
+Using external packages
+BeautifulSoup and requests
+
+select topic
+planning
+
+Web scraping
+- covid project
+- crypto tracking
+- scrape top trending searches in twitter and perform sentiment analysis
