@@ -1,0 +1,29 @@
+
+db <-> server <-> api <-> internet <-> client
+
+db -> logical computer
+- scalable
+- complex data in a logical way
+- aggregate data
+
+
+relational db
+
+Tables <-> contain buisness logic
+students table
+name, age, gender, address, programming language, marks and teacher ratings
+
+teachers table
+name, age, gender, address, programming language, student ratings
+
+subjects table 
+maths, python, apis, servers, db
+
+
+non relationship
+{"melbourne": 28deg, "sydney": 38deg}
+{"melbourne": 3M, "..."}
+
+- mining
+{"lat", "log", "iron":38%}
+{"lat", "log", "gold":38%}

@@ -1,0 +1,74 @@
+Primary Key and Foreign Key Overview
+
+ERD -> Entity Relational Diagram
+- Entities
+- Attributes
+- relationships
+
+Cardinality
+- number notation
+- Crowbar notation
+
+------------------
+
+persons table
+ID 
+1, akash, 35, 123
+2, ramiz, 23, 321
+3, akash, 23
+4, ramiz, 34
+
+Primary Key (PK) <-> UNIQUE, non null
+----------------------------
+
+Foreign Key (FK)  <---> can also define as getting data from another table
+
+persons table
+Id, name, age
+1, akash, 35
+2, ramiz, 23
+
+students table
+Id, name, age, subject
+1, ramiz, 23, maths
+2, akash, 23, maths
+
+(person_id is the FK)
+students table
+Id, person_id, subject
+1, 2, maths
+2, 1, maths
+
+-----------------------------
+
+Composite keys (2 or more keys to make it unique)
+
+students (id, name, age, roll_number)
+class (id, subject, teacher_id)
+
+many to many
+attendance
+id, class, students
+1, 1, 1, date
+2, 1, 2, date
+3, 1, 3, date
+
+ERD -> Entity Relational Diagram
+- Entities <-> table
+- Attributes <-> properties or column
+- relationships
+
+cars (fuel_type, color, model) 
+
+-------- 
+|||||||| (attributes)
+
+----------
+
+Cardinality
+
+m = many
+n = be any number
+- number notation (1 m) (m m) (m n) (0 m)
+- Crow's foot notation 
+
