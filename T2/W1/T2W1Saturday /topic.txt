@@ -1,0 +1,40 @@
+
+
+Advance Python (write clean code with decorator)
+
+- List comprehension
+- Dict comprehension
+
+Rule
+newlist = [expression for item in iterable if condition == True]
+newdict = {k: v for k, v in dictonary if condition == True}
+
+- First class functions
+
+- decorator (NOT IN COURSE)
+    simple decorator
+    decorator with arguments
+
+MVC (write code not only readable, maintainable and scalable and can handle large request)
+- model 
+    - handles the complexity
+    - sent information back to controller
+    - responsible of business
+- view 
+    - part of the application that encompasses everything the user can see/interact with.
+    - GUI or the website etc.
+    - Something like Front end, The front end receives/captures input, and then the controller sends it to the back end for processing.
+- controller 
+    - responsible of routes
+- single responsibility principles of a function (NOT IN COURSE)
+
+MVC examples
+
+Insomnia and postman
+- example routes for testing
+
+Flask following documentation (interactive learning)
+- setup flask
+- simple CRUD app from documentation
+
+Filtering different countries based on the current political situations
