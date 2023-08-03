@@ -62,4 +62,4 @@ insert into members (username, email, age, project_id)
 values ('Theo', 'theo@email.com', 24, 2);
 
 insert into members (username, email, age, project_id) 
-values ('Kiran', 'kiran@email.com', 24, 5);
+values ('Kiran', 'kiran@email.com', 24, 1);
