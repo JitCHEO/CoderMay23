@@ -1,0 +1,8 @@
+Truth table
+ - AND
+ - OR
+ - XOR
+ - =>
+ - <=>
+
+Watch the recording
