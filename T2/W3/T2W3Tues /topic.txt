@@ -5,4 +5,7 @@ Truth table
  - =>
  - <=>
 
+ Sets
+ 
+
 Watch the recording

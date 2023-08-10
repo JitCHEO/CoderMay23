@@ -1,0 +1,14 @@
+
+- Aggregrate Functions
+    - Apply to a group of data
+    - Sum, Avg, Min,Max
+
+EG:
+    hackathon_db_sql=# select count(*) from members;
+
+    hackathon_db_sql=# insert into members(username, email, role, age, project_id) values ('User1’, ‘’)， （‘User2', 'email', '')
+
+
+- Joins
+    - join 2 or more table together so can perform operations on the combined table at once
+    - Joining of the table is done using some condition - mostly foreigh keys are used
