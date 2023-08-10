@@ -12,3 +12,9 @@ EG:
 - Joins
     - join 2 or more table together so can perform operations on the combined table at once
     - Joining of the table is done using some condition - mostly foreigh keys are used
+
+
+Lesson:
+- insert into members(username, email, age) values ('user1', 'user1@email.com', 27), ('user2', 'user2@email.com', 31)
+- insert into projects(title, repository) values ('Project1', 'Repo1'), ('Project2', 'Repo2'), ('Project3', Repo3');
+- insert into projects(title, repository) values ('Project1', 'Repo1'), ('Project2', 'Repo2'), ('Project3', 'Repo3');
