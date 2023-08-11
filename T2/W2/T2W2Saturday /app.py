@@ -1,11 +1,12 @@
 from flask import Flask, request #, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
+from marshmallow import fields, ValidationError, validate
 app = Flask(__name__)
 ma = Marshmallow(app)
 
 # what dbms + db adapter + db_user + password + host:port + database name
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql+psycopg2://hackathon_db_admin:password123@localhost:5432/hackathon_db_flask"
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql+psycopg2://jitkcheo:@localhost:5432/hackathon_db_sql_2"
 
 #create the database instance
 db = SQLAlchemy(app)
@@ -45,10 +46,14 @@ class Project(db.Model):
     title = db.Column(db.String())
     repository = db.Column(db.String())
     description = db.Column(db.String())
+    email = db.Column(db.String())
 
 class ProjectSchema(ma.Schema):
     class Meta:
-        fields = ("id", "title", "repository", "description")
+        fields = ("id", "title", "repository", "description", "email")
+    title = fields.String(required=True, validate=validate.Length(min=5, max=50))
+    email = fields.Email()
+    repository = fields.URL()
 
 projects_schema = ProjectSchema(many=True)
 project_schema = ProjectSchema()
@@ -90,15 +95,20 @@ def get_project_by_id(id):
 def create_project():
    #create a project
    #print(request.json)
-   project_fields = project_schema.load(request.json)
-   new_project = Project(
-        title = project_fields["title"],
-        repository = project_fields["repository"], 
-        description = project_fields["description"]
-    )
-   db.session.add(new_project)
-   db.session.commit() 
-   return project_schema.dump(new_project), 201
+   try:
+        project_fields = project_schema.load(request.json)
+        new_project = Project(
+            title = project_fields["title"],
+            repository = project_fields["repository"], 
+            description = project_fields["description"],
+            email = project_fields["email"]
+        )
+        db.session.add(new_project)
+        db.session.commit() 
+        return project_schema.dump(new_project), 201
+   except ValidationError as error:
+       return  error.messages, 400
+       
 
 @app.delete('/projects/<int:id>')
 def delete_project(id):
@@ -122,6 +132,7 @@ def update_project(id):
         project.title = request.json.get("title") or project.title
         project.repository = request.json.get("repository") or project.repository 
         project.description = request.json.get("description") or project.description
+        project.email = request.json.get("email") or project.email
 
         db.session.commit()
         return project_schema.dump(project), 202

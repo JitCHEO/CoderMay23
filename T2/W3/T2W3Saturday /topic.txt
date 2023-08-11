@@ -1,0 +1,37 @@
+
+Flask
+- Authentication
+    - Verify identity of user
+    - Register and l;ogin
+    - Mostly email, username and poassword combinations are used
+    - Method
+        - Session
+            - Server saves the sessionID
+            - Servers searches the sessionID sent by the browser to check it against the saved IDs.
+        - Token -JWT
+            - Server doesn't save the Token
+            - Token cannot be tempered with
+            - Server checks whether the token is valid or not
+        - JWT- JSON-Web Taken
+            - 3 parts: header(expiry of token/authorization), payload(userid) and signature
+            - header and payload are encoded
+            - signature is created by hashing heaeder and payload with a secret key
+
+- Bcrypt
+    - Library for hashing poassword
+    - Hashing is one-way function, hashed password cannot be retireced in original form
+    - Can only be verified
+
+- Authorisatiom
+    - After tuthentication
+    - Permission
+    - Verify if user has permission to perform a certain action on a certain resource
+
+
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(15), unique=True, nullable=False)
+    email = db.Column(db.String(), unique=True, nullable=False)
+    password = db.Column(db.String(), nullable=False)
+
+
+    nullable=False means not null, means it cant be leave empty
