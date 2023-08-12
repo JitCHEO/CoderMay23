@@ -28,10 +28,68 @@ Flask
     - Verify if user has permission to perform a certain action on a certain resource
 
 
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(15), unique=True, nullable=False)
-    email = db.Column(db.String(), unique=True, nullable=False)
-    password = db.Column(db.String(), nullable=False)
+    class Member(db.Model):
+        __tablename__ = "members"
+
+        id = db.Column(db.Integer, primary_key=True)
+        username = db.Column(db.String(15), unique=True, nullable=False)
+        email = db.Column(db.String(), unique=True, nullable=False)
+        password = db.Column(db.String(), nullable=False)
 
 
-    nullable=False means not null, means it cant be leave empty
+                nullable=False means not null, means it cant be leave empty
+
+
+        role = db.Column(db.String(), default="Developer")
+        age = db.Column(db.Integer)
+        is_admin = db.Column(db.Boolean, default=False)
+
+    class MemberSchema(ma.Schema):
+        class Meta:
+            fields = ("id", "username", "email", "password", "role", "age", "is_admin")
+            load_only = ("password", )   Put a , at the end so python will read it as tuple instead of string
+
+    members_schema = MemberSchema(many=True)
+
+        with 's' means plural = it will load list of more than an item
+
+    member_schema = MemberSchema()
+        without 's' mean singular = will load only single item
+
+    TYPe this in terminal
+    -------------------------
+        python3 -m venv venv   
+        source ./venv/bin/activate       
+        python3 -m pip install -r requirements.txt  
+        pip install flask_bcrypt flask_jwt_extended
+        pip freeze > requirements.txt
+
+    is_admin:
+        - dont do it at resgister_member or else user can make themselve admin whenever they like
+        - DO it only at seed command
+----------------------------------------------------
+
+@app.route("/auth/register", methods=["POST"])
+def register_member():
+    member_fields = member_schema.load(request.get_json())
+    new_member = Member(
+        username = member_fields["username"],
+        email = member_fields["email"],
+        password = member_fields["password"],
+        role = member_fields["role"],
+        age = member_fields["age"]
+    )
+    db.session.add(new_member)
+    db.session.commit()
+
+    (ALWAYS need to add and commit for @app.route)
+
+@app.route("/auth/register", methods=["POST"])     OR  @app.post("/auth/register")
+
+
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql+psycopg2://jitkcheo:@localhost:5432/hackathon_db_flask"
+    
+PascalCase
+snake_case
+camelCase
+kebab-case
