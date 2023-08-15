@@ -2,5 +2,15 @@
 Big O notation
 
 
-MVC CRUD Ideas (e-commerce style)
+MVC CRUD Ideas (e-commerce style)(Model, View, Controller)
 - Pet shop
+
+- Shopkeeper 
+- Pet
+- Customers
+
+
+database -> MVC -> routes
+PG -> docker -> DBvear
+
+No SQL query -> Only ORMs
