@@ -1,0 +1,6 @@
+
+Big O notation
+
+
+MVC CRUD Ideas (e-commerce style)
+- Pet shop
