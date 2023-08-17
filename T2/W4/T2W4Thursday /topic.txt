@@ -1,0 +1,11 @@
+
+
+- Pet shop
+    - Shopkeeper
+    - Pet
+    - Customers
+
+
+- Marshmallow - https://flask-marshmallow.readthedocs.io/en/latest/
+- SqlAlchemy - https://flask-sqlalchemy.palletsprojects.com/en/3.0.x/api/
+- Blueprint - https://flask.palletsprojects.com/en/2.3.x/blueprints/
