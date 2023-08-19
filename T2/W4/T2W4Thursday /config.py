@@ -10,7 +10,6 @@ class BaseConfig(object):
 
         return db
 
-
 class DevelopementConfig(BaseConfig):
     DEBUG = True
 
@@ -25,11 +24,16 @@ class ProductionConfig(BaseConfig):
 current_env = os.environ.get("FLASK_ENV")
 
 if current_env == "testing":
-    app_config = DevelopementConfig()
+    app_config = TestingConfig()
 elif current_env == "production":
     app_config = ProductionConfig()
 else:
     app_config = DevelopementConfig()
+
+
+
+
+
 
 
 

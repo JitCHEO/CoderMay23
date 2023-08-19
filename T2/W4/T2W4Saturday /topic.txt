@@ -1,0 +1,37 @@
+
+
+- Pet shop
+    - Shopkeepers
+    - Pet
+    - Customers
+
+
+- Marshmallow - https://flask-marshmallow.readthedocs.io/en/latest/
+- SqlAlchemy - https://flask-sqlalchemy.palletsprojects.com/en/3.0.x/api/
+- Blueprint - https://flask.palletsprojects.com/en/2.3.x/blueprints/
+
+
+
+- Model version1
+
+Owner (Buy or Sell)
+id, license_number, phone_number, post_code, is_shopkeeper
+
+Shop
+shopkeeper_id (Person Id), pet_id, sold_at (Date)
+
+Pet
+id, type, breed, pet_license_number
+
+- Model version2
+
+Person (Buy or Sell)
+id, license_number, phone_number, post_code, is_shopkeeper
+
+Pet
+id, type, breed, pet_license_number
+
+
+
+
+
