@@ -1,0 +1,8 @@
+CS Fundamentals 
+- Matrices & Graphs
+
+- Matrix operations
+    - Dot product or matrix multiplication
+
+- Weight, unweighted graphs,
+- Tree
