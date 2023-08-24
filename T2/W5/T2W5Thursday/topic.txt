@@ -1,0 +1,9 @@
+Todo list
+
+Thurs
+- Interactive session
+    -setup MVC, FLASK, config, enviroment & add models
+
+    Saturday
+    - Associations
+    - Project
