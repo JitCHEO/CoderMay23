@@ -202,6 +202,7 @@ def register_member():
     db.session.commit()
     return member_schema.dump(new_member), 201
 
+#recording time 1:42:47
 @app.post("/auth/login")
 def login_member():
     # Find a member with that email address
