@@ -15,4 +15,12 @@ Loops:
 -for-of, for-in
 
 Please go through  <https://edstem.org/au/courses/11863/lessons/42958> before this lesson if you have the chance.
-if, si
+
+Saturday plan:
+
+- Kahoot
+- JS function declarations & usage
+- Blocks and scope
+- Closures
+- Functions in objects
+- Challenge solutions with students volunteering
