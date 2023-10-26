@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "someRandomScript": "echo \" Hello everyone \" ",
     "start": "node index.js",
+    "start-messages": "node messageList.js",
     "start-dev": "nodemon index.js"
   },
   "keywords": [],
