@@ -4,6 +4,14 @@ const promptInstance = promptSync({
     sigint: true //allows CTRL+C to exit the app
 })
 
+class SomeCustomError extends Error {
+    constructor(message = "Some error happened, write a better message"){
+        super();
+        this.message = message;
+        this.codeId = "AE3A0-UIE";
+    }
+}
+
 function app () {
     let userEnteredValid = false;
 
@@ -14,7 +22,9 @@ function app () {
         // if (!parseInt(userInput)) {
         if (isNaN(userInput)){
             //throw "User did not enter a number"
-            throw new Error("User did not enter a number")
+            // throw new Error("User did not enter a number")
+            throw new SomeCustomError()
+            // throw new SomeCustomError("User did not enter a number")
         }
 
         // if (userInput === ""){
@@ -40,7 +50,8 @@ try {
     console.log("app executed successfully" + success);
 } catch(error) {
     console.log("An error occured.");
-    console.log(error);
+    console.log(`Error code: ${error.codeId}`);
+    console.log(error.message);
 } finally {
     console.log("App has finished running. Pretend the DB and other instances nicely closedd in this clause")
 }
