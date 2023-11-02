@@ -19,10 +19,22 @@
         <label>New item:</label>
         <input type="text" id="real-nameinput" />
         <h6 id="real-texthint">Not sure what to write? check IMDB!</h6>
-        <button id="real-formsubmit">Submit new item</button>
+        <!-- if added here, it will double up because in script.js also have the event -->
+        <button onclick="addItemToList(event, 'real-nameinput')" id="real-formsubmit">Submit new item</button>
+        <!-- <button id="real-formsubmit">Submit new item</button> -->
     </form>
 
     <hr />
+
+    <!-- pseudo form -->
+    <h2>pseudo form</h2>
+    <label>New item:</label>
+    <input type="text" id="pseudo-nameinput" />
+    <h6 id="pseudo-texthint">Not sure what to write? check IMDB!</h6>
+    <button id="pseudo-formsubmit">Submit new item</button>
+
+    <hr />
+
 
     <h2>Favourite Media</h2>
     <ul>
