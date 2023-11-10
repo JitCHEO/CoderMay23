@@ -5,7 +5,9 @@ function getRandomPokemon(){
     //let result = fetch("https://pokeapi.co/api/v2/pokemon/"+25).then()
     // let id = 25;
     // let result = fetch("https://pokeapi.co/api/v2/pokemon/" + id).then()
-    let id = 26;
+    // let id = 1;
+    // cooler way to get the number of pokemons would be to call the API and get the count...
+    let id = Math.floor(Math.random() * 1017) + 1;
     let result = fetch(API_BASE_URL + id)
                     .then(response => {
                         //console.log(response);
@@ -24,7 +26,6 @@ function getRandomPokemon(){
                     .catch(error => {
                         console.log("Error: " + error);
                     })
-
 
     //console.log(result);
 }
