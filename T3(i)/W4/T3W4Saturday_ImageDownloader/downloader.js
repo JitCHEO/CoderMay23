@@ -24,7 +24,17 @@ function downloadPokemonPicture (targetId = getRandomPokemonId()){
             //step 1: get the image URL
             let newUrl = await getPokemonPictureUrl(targetId);
             //step 2: do the download
-            let saveFileLocation = await savePokemonPictureToDisk(newUrl, "ExampleImage.png", "storage");
+            //option 1: hardcoded filename to ExampleImage
+            //let saveFileLocation = await savePokemonPictureToDisk(newUrl, "ExampleImage.png", "storage");
+            //option2: Pokemon + id, not identifiable, we want the name 
+            //let saveFileLocation = await savePokemonPictureToDisk(newUrl, `Pokemon${targetId}.png`, "storage");
+            
+            //option 3: pokemon name.png as we wanted
+            let response = await fetch(API_URL_BASE + targetId)
+            let data = await response.json();
+        
+            let saveFileLocation = await savePokemonPictureToDisk(newUrl, `${data.name}.png`, "storage");
+
             resolve(saveFileLocation);
         } catch (error) {
             reject (error);
@@ -35,7 +45,7 @@ function downloadPokemonPicture (targetId = getRandomPokemonId()){
 
 // Generate a random number between 1 and 1017 (number of Pokemons ???)
 function getRandomPokemonId(){
-    return math.floor(math.random() * 1017) +1;
+    return Math.floor(Math.random() * 1017) +1;
 }
 
 //Retrieve Pokemon data for that number
