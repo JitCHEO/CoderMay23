@@ -16,7 +16,7 @@ class App extends React.Component{
     
       // start with at least one pokemon on screen
       this.state = {
-        pokemonCount: 5
+        pokemonCount: 3
       }
   }
 
@@ -42,7 +42,11 @@ class App extends React.Component{
         <h1>Pokemon page</h1>
         <button onClick={() => {this.decreasePokemonCount(this.state.pokemonCount)}}>Decrease Pokemon count</button>
         <button onClick={() => {this.increasePokemonCount(this.state.pokemonCount)}}>Increase Pokemon count</button>
-        <Pokemon />
+        {/* <Pokemon /> */}
+        {
+          // Array(arraySize).fill(defaultValue).map(() => {return JSX})
+          Array(this.state.pokemonCount).fill(null).map((element, index) => <Pokemon key={index}/>)
+        }
       </div>      
     )
   }
