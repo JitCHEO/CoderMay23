@@ -5,8 +5,11 @@
 // - Iterate over a single, DRY modular component
 // - Button to increase Pokemon count
 // - Button to decrease Pokemon count
-import React from "react";
 
+import React from "react";
+import Pokemon from "./Pokemon";
+
+// Class component
 class App extends React.Component{
   constructor(){
     super();
@@ -21,9 +24,20 @@ class App extends React.Component{
     return(
       <div>
         <h1>Pokemon page</h1>
+        <Pokemon />
       </div>      
     )
   }
 }
+
+// Function component
+// function App(){
+//   return(
+//     <div>
+//       <h1>Pokemon Page</h1>
+//     </div>
+//   )
+// }
+
 
 export default App;
