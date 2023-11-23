@@ -1,4 +1,6 @@
 
+
+// function component
 export default function BusinessCardDisplay(props){
     return (
         <div>
