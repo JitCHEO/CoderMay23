@@ -28,21 +28,56 @@ export default class BusinessCardParent extends Component {
         }
     }
 
-    render(){
-        if (this.state.editMode) {
-            return(
-                <BusinessCardForm 
-                    name={this.state.name} 
-                    email={this.state.email}
-                    updateState={this.updateState}
-                    />
-            )
-        } else {
-            return (
-                <BusinessCardDisplay name={this.state.name} email={this.state.email} />
-            )
-        }      
+    toggleEditMode = () => {
+        this.setState({editMode: !this.state.editMode})
     }
+
+    render(){
+       
+        return(
+            <div>
+                {/* ternary operator */}
+                {
+                    this.state.editMode ? 
+                        <BusinessCardForm 
+                        name={this.state.name} 
+                        email={this.state.email}
+                        updateState={this.updateState}
+                        />
+                    : <BusinessCardDisplay name={this.state.name} email={this.state.email} />
+                }
+
+                <button onClick={this.toggleEditMode}>Toggle Edit Mode</button>
+            </div>
+            
+        )
+          
+    }
+
+
+    // Below repeated <div> & onClick twice, top option is DRY.
+    // render(){
+    //     if (this.state.editMode) {
+    //         return(
+    //             <div>
+    //             <BusinessCardForm 
+    //                 name={this.state.name} 
+    //                 email={this.state.email}
+    //                 updateState={this.updateState}
+    //                 />  
+    //                 <button onClick = {this.toggleEditMode}>Toggle Edit Mode</button>                  
+    //             </div>
+    //         )
+    //     } else {
+    //         return (
+    //             <div>
+    //             <BusinessCardDisplay name={this.state.name} email={this.state.email} />   
+    //             <button onClick={this.toggleEditMode}>Toggle Edit Mode</button>                                
+    //             </div>
+
+    //         )
+    //     }      
+    // }
 
 }
 
