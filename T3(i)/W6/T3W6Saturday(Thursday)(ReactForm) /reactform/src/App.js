@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import BusincessCardPage from './pages/BusinessCardPage';
+import PokemonFetcherPage from './pages/PokemonFetcherPage'
 import { Routes, Route, Outlet} from 'react-router-dom';
 
 
@@ -25,6 +26,8 @@ function App() {
 
 
         <Route path='/cards' element={<BusincessCardPage />} />
+        <Route path='/pokemon' element={<PokemonFetcherPage />} />
+        <Route path='/pokemon/:pokemonId' element={<PokemonFetcherPage />} />
       </Routes>
     </div>
   );

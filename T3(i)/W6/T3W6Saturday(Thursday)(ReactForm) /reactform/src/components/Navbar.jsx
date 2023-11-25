@@ -17,6 +17,9 @@ export default function Navbar(){
                 <li>
                     <NavLink to='/cards' style={({isActive}) => isActive ? {color: "red"} : undefined}>Business Cards</NavLink>
                 </li>
+                <li>
+                    <NavLink to='/pokemon' style={({isActive}) => isActive ? {color: "red"} : undefined}>Pokemons</NavLink>
+                </li>
             </ul>
         </nav>
     )
