@@ -1,4 +1,5 @@
 import './App.css';
+import Navbar from './components/Navbar'
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
@@ -9,6 +10,7 @@ import { Routes, Route, Outlet} from 'react-router-dom';
 function App() {
   return (
     <div className="App">
+      <Navbar />
       <Routes>
         <Route path='/' element={<HomePage />} />
         {/* this works, may be tedious to handle when there are many nested routes
