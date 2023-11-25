@@ -3,7 +3,7 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import BusincessCardPage from './pages/BusinessCardPage';
-import { Routes, Route} from 'react-router-dom';
+import { Routes, Route, Outlet} from 'react-router-dom';
 
 
 function App() {
@@ -16,7 +16,8 @@ function App() {
         <Route path='/about/contact' element={<ContactPage />} /> 
         More alternatives available
         */}
-        <Route path='/about' element={<AboutPage />}>
+        <Route path='/about' element={<Outlet />}>
+          <Route index element={<AboutPage />} />
           <Route path='contact' element={<ContactPage />} />
         </Route>
 
