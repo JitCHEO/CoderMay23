@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function PokemonHook(){
     //[variable of state, function to set variable] = useState(initial value of state) 
@@ -9,8 +9,15 @@ export default function PokemonHook(){
     //setPokemon({name: "pikachu"})
 
     function getPokemon(){
-        setPokemon({name: "pikachu"})
+        setPokemon({name: "Charmander"})
     }
+
+    // Runs at the start or on the first render of this component
+    // useEffect(cb function, []) is equivalent to componentDidMount
+    // Because the dependency array is empty
+    useEffect(() => {
+        setPokemon({name: "pikachu"})
+    },[])
 
     return(
         <div>
