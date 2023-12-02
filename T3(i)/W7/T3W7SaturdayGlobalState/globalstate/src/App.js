@@ -1,7 +1,7 @@
 
 import './App.css';
 import ApiTester from './ApiTester';
-import { ConnectionContext, defaultConnectionData } from './context/ConnectionContext';
+import ConnectionProvider from './context/ConnectionContext';
 import UserGlobalData from './context/UserContext';
 import UserDisplay from './UserDisplay';
 
@@ -10,10 +10,10 @@ function App() {
     <div className="App">
       <UserGlobalData>
       {/* add Provider and the itinial value */}
-        <ConnectionContext.Provider value={defaultConnectionData}>
+        <ConnectionProvider>
           <ApiTester />
           <UserDisplay />
-        </ConnectionContext.Provider>
+        </ConnectionProvider>
       </UserGlobalData>
       
     </div>
