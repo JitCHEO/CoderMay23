@@ -11,7 +11,7 @@ export const userReducer = (previousState, instructions) => {
         case "logout":
             // newState = '';
             // return newState;
-            return '';
+            return {jwt: ''};
         default:
             return newState;
     }
