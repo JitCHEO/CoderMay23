@@ -4,10 +4,14 @@ import { UserContext } from "./context/UserContext"
 
 export default function UserDisplay(){
     //let globalUserData = useContext(UserContext);
-    const {userData, setUserData} = useContext(UserContext);
+    const {userData, userDataDispatch} = useContext(UserContext);
 
     function updateUserData(event){
-        setUserData({jwt: event.target.value})
+        //setUserData({jwt: event.target.value})
+        userDataDispatch({
+            type: "setJwt",
+            data: {jwt: event.target.value}
+        })
     }
     return(
         <div>
@@ -18,7 +22,6 @@ export default function UserDisplay(){
             id="jwt"
             value={userData.jwt}
             onChange={updateUserData}
-            // onChange={(event) => setUserData({jwt: event.target.value})}
             />
         </div>
     )
