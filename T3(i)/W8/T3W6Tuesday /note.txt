@@ -1,0 +1,10 @@
+
+Goals:
+- React aqpp code-along
+    - Definite goals:
+        - deployment
+        - manage API URL via global state
+        - imoplement a Form
+    - Nice to haves:
+        - CSS frameworkss (eg. React Bootstrap)
+        - API that uses other HTTP verbs (eg. fetch with POST/PUT/DELETE)
