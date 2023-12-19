@@ -1,4 +1,3 @@
-// console.log("hey everyone, server WIP...");
 //import the server package
 const express = require('express');
 
@@ -19,9 +18,8 @@ app.get('/', (request, response) => {
 const pokemonRouter = require('./controllers/PokemonController');
 app.use("/pokemon", pokemonRouter);
 
-// Configure the server
-
-// Activate the server
-app.listen(PORT, HOST,()=> {
-    console.log(`Server is running on port ${PORT}`);
-})
+module.exports = {
+    app, 
+    HOST, 
+    PORT
+}
