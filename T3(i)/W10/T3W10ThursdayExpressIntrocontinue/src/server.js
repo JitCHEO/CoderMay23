@@ -8,6 +8,10 @@ const HOST = process.env.HOST || "localhost"
 const PORT = process.env.PORT || 3000;
 //ports run in integers between 1001 - 65536
 
+//middleware
+app.use(express.json());
+app.use(express.urlencoded({extended: true}))
+
 // write the routes
 //GET localhost:3000/
 // app.get(route path, callback function to handle request and response)
