@@ -1,5 +1,6 @@
 const express = require('express');
-const {checkForJairo} = require('./PokemonMiddleware')
+const {checkForJairo} = require('./PokemonMiddleware');
+const {body, validationResult} = require('express-validator');
 
 //create an instance of the Express router
 const router = express.Router();
@@ -38,23 +39,27 @@ router.get("/:pokemonId", async (request, response) => {
 // router.use(checkForJairo);
 
 //POST /pokemon
-router.post("/", checkForJairo, async (request, response) => {
-    
-    if (request.body.username != "jairo"){
-        return response.json({
-            message: "You are not authorised"
-        })
-    }
-    // let pkId = request.params.pokemonId;
-    let pkId = request.body.pokemonId;
-    let result = await fetch("https://pokeapi.co/api/v2/pokemon/" + pkId);
-    let data = await result.json();
+router.post(
+    "/", //path
+    body('username').trim().isLength({min: 3, max: 9}), // express validator
+    //checkForJairo, //middleware 
+    async (request, response) => { //cb function that handles response
+        const errors = validationResult(request);
+        if (!errors.isEmpty()){
+            return response.json({
+                message: "Wrong length from username",
+                errors: errors.array()
+            })
+        }
+        let pkId = request.body.pokemonId;
+        let result = await fetch("https://pokeapi.co/api/v2/pokemon/" + pkId);
+        let data = await result.json();
 
-    response.json({
-        pokemonName: data.name,
-        username: request.body.username,
-        pokemonId: request.body.pokemonId
-    })
+        response.json({
+            pokemonName: data.name,
+            username: request.body.username,
+            pokemonId: request.body.pokemonId
+        })
 })
 
 router.post('/', (req, res) => {
