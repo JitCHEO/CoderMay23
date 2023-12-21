@@ -1,7 +1,11 @@
 const express = require('express');
+const {checkForJairo} = require('./PokemonMiddleware')
 
 //create an instance of the Express router
 const router = express.Router();
+
+//if defined here, it applies to all the routes below
+// router.use(checkForJairo);
 
 router.get("/", (request, response) => {
     response.json({
@@ -30,8 +34,11 @@ router.get("/:pokemonId", async (request, response) => {
     })
 })
 
+//if defined here, it applies to all the routes below
+// router.use(checkForJairo);
+
 //POST /pokemon
-router.post("/", async (request, response) => {
+router.post("/", checkForJairo, async (request, response) => {
     
     if (request.body.username != "jairo"){
         return response.json({
