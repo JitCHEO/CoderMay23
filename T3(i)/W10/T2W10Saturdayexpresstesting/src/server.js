@@ -7,6 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 //cofiguration goes here
+// this lets us read POST'd JSON body data on the request
 app.use(express.json());
 // Router go below
 
