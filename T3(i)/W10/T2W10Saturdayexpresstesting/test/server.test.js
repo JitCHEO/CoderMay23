@@ -15,3 +15,10 @@ describe("Server root route exists and returns hello world", ()=> {
         expect(response.body.message).toEqual("Hello world!");
     });
 });
+
+describe("Server route which doesn't exist returns 404", ()=>{
+    test("/welcome route return 404 not found", async ()=>{
+        const responseResult = await request(app).get("/welcome");
+        expect(responseResult.statusCode).toEqual(404);
+    })
+});
