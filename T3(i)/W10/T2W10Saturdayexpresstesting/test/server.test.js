@@ -22,3 +22,17 @@ describe("Server route which doesn't exist returns 404", ()=>{
         expect(responseResult.statusCode).toEqual(404);
     })
 });
+
+describe("POST to root route copies message in request body", ()=>{
+    test('POST request.body.message of Hello World returns received of Hello World', async ()=>{
+        let messageToSend = "Hello world";
+
+        const response = await request(app)
+        .post('/')
+        .send({
+            message: messageToSend
+        });
+
+        expect(response.body.received).toEqual(messageToSend);
+    } )
+})
