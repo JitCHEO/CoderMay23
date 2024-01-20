@@ -58,9 +58,9 @@ router.post("/", async(request, response)=>{
     })
 })
 
-// Find a pet by ID & update it
-// We need the ID, but also the attributes to be updated.
-router.patch("/:id", async(request, response) => {
+//find a pet by id and update it
+// we need the id, but also the attributes to be updated
+router.patch("/:id", async (request, response) => {
     let result = await Pet.findByIdAndUpdate(
         request.params.id,
         request.body,
@@ -75,8 +75,8 @@ router.patch("/:id", async(request, response) => {
     })
 })
 
-// Find a pet by ID & delete it
-router.delete("/:id", async(request, response) => {
+// find a pet by id and delete it
+router.delete("/:id", async (request, response) => {
     let result = await Pet.findByIdAndDelete(request.params.id).catch(error => {return "Pet id not found"});
     response.json({
         deletedPet: result
