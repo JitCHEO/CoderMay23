@@ -1,5 +1,8 @@
 const express = require("express");
 
+const {User} = require('../models/UserModel');
+const {comparePassword, generateJwt} = require('../utils/userAuthFunctions');
+
 const router = express.Router();
 
 //get all the users from the DB
@@ -21,7 +24,8 @@ const router = express.Router();
  * ]
  */
 router.get("/", async (request, response) =>{
-    return null
+    let result = await User.find();
+    response.json({result});
 })
 
 // get a user by id from the DB
@@ -41,7 +45,9 @@ router.get("/:id", async (request, response) => {
 // request.body = {username: "admin", password:"password1"}
 //respond with {jwt: ef23rf24f23e23efqegt24g2wegfq23}
 router.post("/signup", async (request, response) => {
-    return null;
+
+    let newUser = await User.create(request.body).catch(error => error);
+    response.json(newUser);
 })
 
 //log in the user
@@ -49,7 +55,22 @@ router.post("/signup", async (request, response) => {
 // request.body = {username: "admin", password:"password1"}
 //respond with {jwt: ef23rf24f23e23efqegt24g2wegfq23}
 router.post("/login", async (request, response) => {
-    return null;
+    // find user by provided username
+    let user = await User.findOne({username: request.body.username}).catch(error => error);
+
+    //Check if password is correct
+    let isPasswordCorrect = await comparePassword(request.body.password, user.password);
+    
+    if (!isPasswordCorrect){
+        response.status(403).json({error: "Wrong password"})
+    }
+
+    // if the credentials are correct, generate a JWT
+    let jwt = generateJwt(user._id.toString());
+
+    response.json({
+        jwt: jwt
+    })
 })
 
 //localhost:3000/users/verify
@@ -64,3 +85,5 @@ router.get("/verify", async(request, response) =>{
 router.get("/regenerate", async(request, response) =>{
     return null;
 })
+
+module.exports = router;
